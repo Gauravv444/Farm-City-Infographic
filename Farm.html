@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Farm City: Mountain Paradise - Project Infographic</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <!-- 
+    CRITICAL PROCESS SUMMARY:
+    1. Analysis: The source "farm-city-gdd" was analyzed to identify key themes: gameplay loop, feature set, development timeline, and monetization.
+    2. Narrative Plan: A top-down narrative was structured: Vision -> Gameplay -> Roadmap -> Business Model -> Long-term Engagement.
+    3. Visualization Selection:
+        - Color Palette: "Energetic & Playful" (#FFC300, #FF5733, #C70039, #900C3F, #581845) was chosen for its vibrant, engaging feel suitable for a game.
+        - Gameplay Loop (Goal: Organize) -> HTML/CSS Flowchart. Justification: Best for showing a process. Implemented with Tailwind divs and borders. NO SVG/Mermaid used.
+        - Roadmap (Goal: Change) -> HTML/CSS Timeline. Justification: Best for showing events over time. Implemented with Tailwind divs. NO SVG/Mermaid used.
+        - Monetization (Goal: Compare Composition) -> Chart.js Donut Chart. Justification: Ideal for showing parts of a whole. Uses Canvas. NO SVG used.
+        - Development Focus (Goal: Compare Composition over Time) -> Chart.js Stacked Bar Chart. Justification: Excellent for comparing categorical composition across different phases. Uses Canvas. NO SVG used.
+    4. Implementation Constraint Confirmation: NEITHER Mermaid JS NOR SVG were used in the generation of this document. All visuals are pure HTML/CSS/Tailwind or rendered on HTML Canvas elements via Chart.js.
+    -->
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 40vh;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .flowchart-arrow {
+            content: '▼';
+            font-size: 2rem;
+            color: #FF5733;
+            line-height: 1;
+        }
+         .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background-color: #FFC300;
+            border-radius: 2px;
+        }
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding-bottom: 2rem;
+        }
+        .timeline-item:nth-child(odd) {
+            padding-right: 2rem;
+            left: 0;
+            text-align: right;
+        }
+        .timeline-item:nth-child(even) {
+            padding-left: 2rem;
+            left: 50%;
+            text-align: left;
+        }
+        .timeline-dot {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #C70039;
+            border: 4px solid #FFC300;
+            border-radius: 50%;
+            top: 15px;
+        }
+         .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+            transform: translateX(50%);
+        }
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center p-8 mb-12 rounded-xl" style="background: linear-gradient(135deg, #581845, #900C3F);">
+            <h1 class="text-4xl md:text-6xl font-black text-white uppercase tracking-wider">Farm City</h1>
+            <h2 class="text-2xl md:text-4xl font-bold text-white" style="color: #FFC300;">Mountain Paradise</h2>
+            <p class="text-white mt-4 max-w-3xl mx-auto text-lg">An infographic presenting the vision, gameplay, development roadmap, and business strategy of our next hit title.</p>
+        </header>
+
+        <main class="space-y-16">
+
+            <section id="gameplay" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h3 class="text-3xl font-bold text-center mb-2" style="color: #900C3F;">The Core Experience</h3>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+                    Farm City is built around an engaging and rewarding gameplay loop designed for long-term player retention. Players are constantly progressing, creating a powerful cycle of investment and achievement.
+                </p>
+                <div class="w-full p-4 md:p-8 rounded-lg" style="background-color: #f8f0f3;">
+                    <h4 class="text-2xl font-semibold text-center mb-6" style="color: #C70039;">The Gameplay Loop: A Cycle of Growth</h4>
+                    <div class="flex flex-col items-center space-y-4">
+                        <div class="text-center p-4 bg-white rounded-lg shadow-md w-full md:w-3/4 lg:w-1/2">
+                            <div class="font-bold text-xl">1. Start & Collect</div>
+                            <div class="text-sm text-gray-600">Begin with a small plot and gather initial resources like coins and seeds.</div>
+                        </div>
+                        <div class="flowchart-arrow"></div>
+                        <div class="text-center p-4 bg-white rounded-lg shadow-md w-full md:w-3/4 lg:w-1/2">
+                            <div class="font-bold text-xl">2. Build & Plant</div>
+                            <div class="text-sm text-gray-600">Construct the first farm and plant crops to begin production.</div>
+                        </div>
+                        <div class="flowchart-arrow"></div>
+                         <div class="text-center p-4 bg-white rounded-lg shadow-md w-full md:w-3/4 lg:w-1/2">
+                            <div class="font-bold text-xl">3. Harvest & Earn</div>
+                            <div class="text-sm text-gray-600">Harvest the crops to earn valuable coins and experience points.</div>
+                        </div>
+                        <div class="flowchart-arrow"></div>
+                         <div class="text-center p-4 bg-white rounded-lg shadow-md w-full md:w-3/4 lg:w-1/2">
+                            <div class="font-bold text-xl">4. Expand & Customize</div>
+                            <div class="text-sm text-gray-600">Use earnings to expand land, build new structures, and decorate.</div>
+                        </div>
+                         <div class="flowchart-arrow"></div>
+                         <div class="text-center p-4 bg-white rounded-lg shadow-md w-full md:w-3/4 lg:w-1/2">
+                            <div class="font-bold text-xl">5. Quest & Trade</div>
+                            <div class="text-sm text-gray-600">Complete quests for big rewards and visit friends to trade resources.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="roadmap" class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                <h3 class="text-3xl font-bold text-center mb-2" style="color: #900C3F;">12-Month Development Roadmap</h3>
+                <p class="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+                    Our development is structured into four distinct phases, ensuring a steady stream of new content and features to keep the community engaged from launch and beyond.
+                </p>
+                <div class="relative max-w-4xl mx-auto">
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="p-4 bg-gray-100 rounded-lg shadow">
+                                <h4 class="font-bold text-xl" style="color: #C70039;">Phase 1: Launch (Months 1-3)</h4>
+                                <p class="text-gray-700">Launch with core building/farming mechanics, initial quests, and the Spring Festival event.</p>
+                            </div>
+                        </div>
+                         <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="p-4 bg-gray-100 rounded-lg shadow">
+                                <h4 class="font-bold text-xl" style="color: #C70039;">Phase 2: Content Expansion (Months 4-6)</h4>
+                                <p class="text-gray-700">Introduce animal barns, markets, a crafting system, and expand the world map with new biomes.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                            <div class="p-4 bg-gray-100 rounded-lg shadow">
+                                <h4 class="font-bold text-xl" style="color: #C70039;">Phase 3: Social Features (Months 7-9)</h4>
+                                <p class="text-gray-700">Implement friend visits, trading, competitive leaderboards, and collaborative community guilds.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-dot"></div>
+                             <div class="p-4 bg-gray-100 rounded-lg shadow">
+                                <h4 class="font-bold text-xl" style="color: #C70039;">Phase 4: Seasonal Updates (Months 10-12)</h4>
+                                <p class="text-gray-700">Roll out major seasonal events (Summer, Autumn, Winter) with new content and gather player feedback.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="features" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <h3 class="text-3xl font-bold text-center mb-2" style="color: #900C3F;">Monetization Strategy</h3>
+                     <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+                        Our model is designed to be fair and player-friendly, blending direct purchases with value-added options to cater to a wide range of players.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="monetizationChart"></canvas>
+                    </div>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 md:p-8">
+                    <h3 class="text-3xl font-bold text-center mb-2" style="color: #900C3F;">Development Focus by Phase</h3>
+                    <p class="text-center text-gray-600 max-w-2xl mx-auto mb-8">
+                        This chart illustrates how our development efforts will be allocated across different feature categories during the four main roadmap phases.
+                    </p>
+                    <div class="chart-container">
+                        <canvas id="devFocusChart"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+             <footer class="text-center p-8 mt-12 rounded-xl" style="background: linear-gradient(135deg, #900C3F, #581845);">
+                 <h3 class="text-2xl font-bold text-white">A Flourishing Future</h3>
+                 <p class="text-white mt-2 max-w-3xl mx-auto">
+                    Farm City: Mountain Paradise combines creativity, strategy, and social interaction, allowing players to build their dream cities in a stunning environment. Through regular updates and community engagement, the game will continually evolve to keep players invested and entertained.
+                 </p>
+             </footer>
+
+        </main>
+    </div>
+
+    <script>
+        const wrapLabel = (label, maxWidth) => {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length < maxWidth) {
+                    currentLine += `${word} `;
+                } else {
+                    lines.push(currentLine.trim());
+                    currentLine = `${word} `;
+                }
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+              return label.join(' ');
+            } else {
+              return label;
+            }
+        };
+        
+        const chartPlugins = {
+            legend: {
+                position: 'bottom',
+                labels: {
+                    color: '#4A5568',
+                    font: {
+                        family: "'Poppins', sans-serif",
+                        size: 14,
+                    }
+                }
+            },
+            tooltip: {
+                enabled: true,
+                backgroundColor: '#000000',
+                titleFont: { size: 16, weight: 'bold', family: "'Poppins', sans-serif" },
+                bodyFont: { size: 14, family: "'Poppins', sans-serif" },
+                callbacks: {
+                    title: tooltipTitleCallback
+                }
+            }
+        };
+
+        const energeticPlayfulPalette = ['#FFC300', '#FF5733', '#C70039'];
+
+        const monetizationCtx = document.getElementById('monetizationChart').getContext('2d');
+        new Chart(monetizationCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['In-Game Purchases (Cosmetics, Speed-ups)', 'Optional Subscription', 'Ad-Based Rewards'],
+                datasets: [{
+                    label: 'Revenue Share',
+                    data: [65, 25, 10],
+                    backgroundColor: energeticPlayfulPalette,
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: chartPlugins,
+                cutout: '60%'
+            }
+        });
+        
+        const devFocusCtx = document.getElementById('devFocusChart').getContext('2d');
+        const devFocusLabels = ['Phase 1: Launch', 'Phase 2: Content', 'Phase 3: Social', 'Phase 4: Seasonal'];
+        new Chart(devFocusCtx, {
+            type: 'bar',
+            data: {
+                labels: devFocusLabels.map(label => wrapLabel(label, 16)),
+                datasets: [
+                    {
+                        label: 'Core Mechanics',
+                        data: [70, 20, 10, 10],
+                        backgroundColor: '#FFC300',
+                    },
+                    {
+                        label: 'New Content/Crafting',
+                        data: [15, 50, 20, 30],
+                        backgroundColor: '#FF5733',
+                    },
+                    {
+                        label: 'Social & Community',
+                        data: [5, 10, 50, 20],
+                        backgroundColor: '#C70039',
+                    },
+                    {
+                        label: 'Events & Live Ops',
+                        data: [10, 20, 20, 40],
+                        backgroundColor: '#900C3F',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: chartPlugins,
+                scales: {
+                    x: {
+                        stacked: true,
+                         ticks: {
+                            color: '#4A5568',
+                            font: { family: "'Poppins', sans-serif", size: 12 }
+                        }
+                    },
+                    y: {
+                        stacked: true,
+                        ticks: {
+                            callback: function(value) { return value + "%" },
+                            color: '#4A5568',
+                            font: { family: "'Poppins', sans-serif", size: 12 }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
